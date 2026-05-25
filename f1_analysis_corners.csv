@@ -1,0 +1,2 @@
+corner_id,corner_type,entry_speed,min_speed,exit_speed,v_loss,v_recovery,brake_start_dist,brake_pressure_max,braking_distance_m,throttle_pickup_dist,throttle_ramp_rate,ers_deployed_kj,ers_harvested_kj,ers_net_kj,lateral_g_max,downforce_index,corner_time_s,late_braking_score,exit_quality_score,ers_efficiency_score
+1,slow,101.05,84.59,84.59,16.46,0.0,3111.9,0.658,24.0,3135.9,0.0,0.005,0.017,-0.012,0.492,2.75,0.99,84.0,83.7,0.0

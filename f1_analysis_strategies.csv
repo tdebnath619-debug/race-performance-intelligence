@@ -1,0 +1,11 @@
+strategy_id,total_time_s,pit_losses_s,n_stops,stints
+1S_MEDIUM_HARD,7465.397,22.0,1,"[{'stint_id': 1, 'compound': 'MEDIUM', 'start_lap': 1, 'end_lap': 24, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'HARD', 'start_lap': 25, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_MEDIUM_HARD,7465.437,22.0,1,"[{'stint_id': 1, 'compound': 'MEDIUM', 'start_lap': 1, 'end_lap': 25, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'HARD', 'start_lap': 26, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_MEDIUM_HARD,7465.537,22.0,1,"[{'stint_id': 1, 'compound': 'MEDIUM', 'start_lap': 1, 'end_lap': 26, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'HARD', 'start_lap': 27, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_MEDIUM_HARD,7465.697,22.0,1,"[{'stint_id': 1, 'compound': 'MEDIUM', 'start_lap': 1, 'end_lap': 27, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'HARD', 'start_lap': 28, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_MEDIUM_HARD,7465.917,22.0,1,"[{'stint_id': 1, 'compound': 'MEDIUM', 'start_lap': 1, 'end_lap': 28, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'HARD', 'start_lap': 29, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_HARD_MEDIUM,7466.197,22.0,1,"[{'stint_id': 1, 'compound': 'HARD', 'start_lap': 1, 'end_lap': 28, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'MEDIUM', 'start_lap': 29, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_HARD_MEDIUM,7466.537,22.0,1,"[{'stint_id': 1, 'compound': 'HARD', 'start_lap': 1, 'end_lap': 27, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'MEDIUM', 'start_lap': 28, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_HARD_MEDIUM,7466.937,22.0,1,"[{'stint_id': 1, 'compound': 'HARD', 'start_lap': 1, 'end_lap': 26, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'MEDIUM', 'start_lap': 27, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_HARD_MEDIUM,7467.397,22.0,1,"[{'stint_id': 1, 'compound': 'HARD', 'start_lap': 1, 'end_lap': 25, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'MEDIUM', 'start_lap': 26, 'end_lap': 57, 'tyre_age_laps': 0}]"
+1S_HARD_MEDIUM,7467.917,22.0,1,"[{'stint_id': 1, 'compound': 'HARD', 'start_lap': 1, 'end_lap': 24, 'tyre_age_laps': 0}, {'stint_id': 2, 'compound': 'MEDIUM', 'start_lap': 25, 'end_lap': 57, 'tyre_age_laps': 0}]"

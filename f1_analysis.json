@@ -1,0 +1,2231 @@
+{
+  "system": "F1 Performance Intelligence System",
+  "version": "1.0",
+  "lap": {
+    "lap_id": 0,
+    "lap_time_s": 129.961,
+    "fuel_corrected_time": 127.261,
+    "avg_speed_kmh": 190.0,
+    "max_speed_kmh": 320.65,
+    "total_brake_time_s": 84.029,
+    "total_coasting_time_s": 0.0,
+    "avg_throttle_pct": 45.73,
+    "top_gear": 8,
+    "n_corners": 1,
+    "total_ers_deployed_kj": 2.49,
+    "total_ers_harvested_kj": 2.11,
+    "ers_balance_kj": 0.37,
+    "avg_lateral_g": 0.237,
+    "max_lateral_g": 1.581,
+    "fuel_load_kg": 90.0,
+    "corner_metrics": [
+      {
+        "corner_id": 1,
+        "corner_type": "slow",
+        "entry_speed": 101.05,
+        "min_speed": 84.59,
+        "exit_speed": 84.59,
+        "v_loss": 16.46,
+        "v_recovery": 0.0,
+        "brake_start_dist": 3111.9,
+        "brake_pressure_max": 0.658,
+        "braking_distance_m": 24.0,
+        "throttle_pickup_dist": 3135.9,
+        "throttle_ramp_rate": 0.0,
+        "ers_deployed_kj": 0.005,
+        "ers_harvested_kj": 0.017,
+        "ers_net_kj": -0.012,
+        "lateral_g_max": 0.492,
+        "downforce_index": 2.75,
+        "corner_time_s": 0.99,
+        "late_braking_score": 84.0,
+        "exit_quality_score": 83.7,
+        "ers_efficiency_score": 0.0
+      }
+    ],
+    "straight_metrics": [
+      {
+        "straight_id": 1,
+        "start_dist": 0.0,
+        "end_dist": 3111.9,
+        "top_speed": 320.6,
+        "avg_ers_kw": 20.1,
+        "drs_active": true,
+        "time_s": 80.721
+      }
+    ]
+  },
+  "comparison": {
+    "lap_a_id": 0,
+    "lap_b_id": 1,
+    "total_delta_s": -0.022,
+    "corner_deltas": [
+      {
+        "corner_id": 1,
+        "corner_type": "slow",
+        "apex_dist": 3129.6,
+        "time_delta_s": -0.016,
+        "entry_speed_delta": -16.77,
+        "min_speed_delta": 0.17,
+        "exit_speed_delta": 0.17,
+        "brake_dist_delta_m": 8.7,
+        "throttle_dist_delta_m": 12.7,
+        "ers_delta_kj": 0.001,
+        "lateral_g_delta": -0.172,
+        "coaching_note": "Lap B +0.016s | Lap B brakes 9m later | Lap A throttle 13m earlier"
+      }
+    ],
+    "summary": "Lap 1 faster by 0.022 s | 1 corners compared.",
+    "key_findings": [
+      "Biggest delta: Corner 1 (slow) \u2014 0.016 s"
+    ]
+  },
+  "aero": {
+    "lap_id": 0,
+    "cd_proxy": 1.0,
+    "drag_force_n_100": 708.9,
+    "drag_force_n_300": 6380.2,
+    "avg_downforce_index": 2.75,
+    "peak_downforce_index": 2.75,
+    "drs_speed_gain_kmh": 10.49,
+    "drs_cd_reduction": 0.12,
+    "aero_balance_pct": 47.5,
+    "slow_corner_grip": 84.6,
+    "fast_corner_grip": 0.0
+  },
+  "top_strategies": [
+    {
+      "strategy_id": "1S_MEDIUM_HARD",
+      "total_time_s": 7465.397,
+      "pit_losses_s": 22.0,
+      "n_stops": 1,
+      "stints": [
+        {
+          "stint_id": 1,
+          "compound": "MEDIUM",
+          "start_lap": 1,
+          "end_lap": 24,
+          "tyre_age_laps": 0
+        },
+        {
+          "stint_id": 2,
+          "compound": "HARD",
+          "start_lap": 25,
+          "end_lap": 57,
+          "tyre_age_laps": 0
+        }
+      ],
+      "lap_times": [
+        {
+          "lap": 1,
+          "compound": "MEDIUM",
+          "lap_time": 130.501,
+          "stint_id": 1,
+          "tyre_age": 1
+        },
+        {
+          "lap": 2,
+          "compound": "MEDIUM",
+          "lap_time": 130.374,
+          "stint_id": 1,
+          "tyre_age": 2
+        },
+        {
+          "lap": 3,
+          "compound": "MEDIUM",
+          "lap_time": 130.248,
+          "stint_id": 1,
+          "tyre_age": 3
+        },
+        {
+          "lap": 4,
+          "compound": "MEDIUM",
+          "lap_time": 130.121,
+          "stint_id": 1,
+          "tyre_age": 4
+        },
+        {
+          "lap": 5,
+          "compound": "MEDIUM",
+          "lap_time": 130.161,
+          "stint_id": 1,
+          "tyre_age": 5
+        },
+        {
+          "lap": 6,
+          "compound": "MEDIUM",
+          "lap_time": 130.201,
+          "stint_id": 1,
+          "tyre_age": 6
+        },
+        {
+          "lap": 7,
+          "compound": "MEDIUM",
+          "lap_time": 130.241,
+          "stint_id": 1,
+          "tyre_age": 7
+        },
+        {
+          "lap": 8,
+          "compound": "MEDIUM",
+          "lap_time": 130.281,
+          "stint_id": 1,
+          "tyre_age": 8
+        },
+        {
+          "lap": 9,
+          "compound": "MEDIUM",
+          "lap_time": 130.321,
+          "stint_id": 1,
+          "tyre_age": 9
+        },
+        {
+          "lap": 10,
+          "compound": "MEDIUM",
+          "lap_time": 130.361,
+          "stint_id": 1,
+          "tyre_age": 10
+        },
+        {
+          "lap": 11,
+          "compound": "MEDIUM",
+          "lap_time": 130.401,
+          "stint_id": 1,
+          "tyre_age": 11
+        },
+        {
+          "lap": 12,
+          "compound": "MEDIUM",
+          "lap_time": 130.441,
+          "stint_id": 1,
+          "tyre_age": 12
+        },
+        {
+          "lap": 13,
+          "compound": "MEDIUM",
+          "lap_time": 130.481,
+          "stint_id": 1,
+          "tyre_age": 13
+        },
+        {
+          "lap": 14,
+          "compound": "MEDIUM",
+          "lap_time": 130.521,
+          "stint_id": 1,
+          "tyre_age": 14
+        },
+        {
+          "lap": 15,
+          "compound": "MEDIUM",
+          "lap_time": 130.561,
+          "stint_id": 1,
+          "tyre_age": 15
+        },
+        {
+          "lap": 16,
+          "compound": "MEDIUM",
+          "lap_time": 130.601,
+          "stint_id": 1,
+          "tyre_age": 16
+        },
+        {
+          "lap": 17,
+          "compound": "MEDIUM",
+          "lap_time": 130.641,
+          "stint_id": 1,
+          "tyre_age": 17
+        },
+        {
+          "lap": 18,
+          "compound": "MEDIUM",
+          "lap_time": 130.681,
+          "stint_id": 1,
+          "tyre_age": 18
+        },
+        {
+          "lap": 19,
+          "compound": "MEDIUM",
+          "lap_time": 130.721,
+          "stint_id": 1,
+          "tyre_age": 19
+        },
+        {
+          "lap": 20,
+          "compound": "MEDIUM",
+          "lap_time": 130.761,
+          "stint_id": 1,
+          "tyre_age": 20
+        },
+        {
+          "lap": 21,
+          "compound": "MEDIUM",
+          "lap_time": 130.801,
+          "stint_id": 1,
+          "tyre_age": 21
+        },
+        {
+          "lap": 22,
+          "compound": "MEDIUM",
+          "lap_time": 130.841,
+          "stint_id": 1,
+          "tyre_age": 22
+        },
+        {
+          "lap": 23,
+          "compound": "MEDIUM",
+          "lap_time": 130.881,
+          "stint_id": 1,
+          "tyre_age": 23
+        },
+        {
+          "lap": 24,
+          "compound": "MEDIUM",
+          "lap_time": 130.921,
+          "stint_id": 1,
+          "tyre_age": 24
+        },
+        {
+          "lap": 25,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 1
+        },
+        {
+          "lap": 26,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 2
+        },
+        {
+          "lap": 27,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 3
+        },
+        {
+          "lap": 28,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 4
+        },
+        {
+          "lap": 29,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 5
+        },
+        {
+          "lap": 30,
+          "compound": "HARD",
+          "lap_time": 130.381,
+          "stint_id": 2,
+          "tyre_age": 6
+        },
+        {
+          "lap": 31,
+          "compound": "HARD",
+          "lap_time": 130.401,
+          "stint_id": 2,
+          "tyre_age": 7
+        },
+        {
+          "lap": 32,
+          "compound": "HARD",
+          "lap_time": 130.421,
+          "stint_id": 2,
+          "tyre_age": 8
+        },
+        {
+          "lap": 33,
+          "compound": "HARD",
+          "lap_time": 130.441,
+          "stint_id": 2,
+          "tyre_age": 9
+        },
+        {
+          "lap": 34,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 10
+        },
+        {
+          "lap": 35,
+          "compound": "HARD",
+          "lap_time": 130.481,
+          "stint_id": 2,
+          "tyre_age": 11
+        },
+        {
+          "lap": 36,
+          "compound": "HARD",
+          "lap_time": 130.501,
+          "stint_id": 2,
+          "tyre_age": 12
+        },
+        {
+          "lap": 37,
+          "compound": "HARD",
+          "lap_time": 130.521,
+          "stint_id": 2,
+          "tyre_age": 13
+        },
+        {
+          "lap": 38,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 14
+        },
+        {
+          "lap": 39,
+          "compound": "HARD",
+          "lap_time": 130.561,
+          "stint_id": 2,
+          "tyre_age": 15
+        },
+        {
+          "lap": 40,
+          "compound": "HARD",
+          "lap_time": 130.581,
+          "stint_id": 2,
+          "tyre_age": 16
+        },
+        {
+          "lap": 41,
+          "compound": "HARD",
+          "lap_time": 130.601,
+          "stint_id": 2,
+          "tyre_age": 17
+        },
+        {
+          "lap": 42,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 18
+        },
+        {
+          "lap": 43,
+          "compound": "HARD",
+          "lap_time": 130.641,
+          "stint_id": 2,
+          "tyre_age": 19
+        },
+        {
+          "lap": 44,
+          "compound": "HARD",
+          "lap_time": 130.661,
+          "stint_id": 2,
+          "tyre_age": 20
+        },
+        {
+          "lap": 45,
+          "compound": "HARD",
+          "lap_time": 130.681,
+          "stint_id": 2,
+          "tyre_age": 21
+        },
+        {
+          "lap": 46,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 22
+        },
+        {
+          "lap": 47,
+          "compound": "HARD",
+          "lap_time": 130.721,
+          "stint_id": 2,
+          "tyre_age": 23
+        },
+        {
+          "lap": 48,
+          "compound": "HARD",
+          "lap_time": 130.741,
+          "stint_id": 2,
+          "tyre_age": 24
+        },
+        {
+          "lap": 49,
+          "compound": "HARD",
+          "lap_time": 130.761,
+          "stint_id": 2,
+          "tyre_age": 25
+        },
+        {
+          "lap": 50,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 26
+        },
+        {
+          "lap": 51,
+          "compound": "HARD",
+          "lap_time": 130.801,
+          "stint_id": 2,
+          "tyre_age": 27
+        },
+        {
+          "lap": 52,
+          "compound": "HARD",
+          "lap_time": 130.821,
+          "stint_id": 2,
+          "tyre_age": 28
+        },
+        {
+          "lap": 53,
+          "compound": "HARD",
+          "lap_time": 130.841,
+          "stint_id": 2,
+          "tyre_age": 29
+        },
+        {
+          "lap": 54,
+          "compound": "HARD",
+          "lap_time": 130.861,
+          "stint_id": 2,
+          "tyre_age": 30
+        },
+        {
+          "lap": 55,
+          "compound": "HARD",
+          "lap_time": 130.881,
+          "stint_id": 2,
+          "tyre_age": 31
+        },
+        {
+          "lap": 56,
+          "compound": "HARD",
+          "lap_time": 130.901,
+          "stint_id": 2,
+          "tyre_age": 32
+        },
+        {
+          "lap": 57,
+          "compound": "HARD",
+          "lap_time": 130.921,
+          "stint_id": 2,
+          "tyre_age": 33
+        }
+      ]
+    },
+    {
+      "strategy_id": "1S_MEDIUM_HARD",
+      "total_time_s": 7465.437,
+      "pit_losses_s": 22.0,
+      "n_stops": 1,
+      "stints": [
+        {
+          "stint_id": 1,
+          "compound": "MEDIUM",
+          "start_lap": 1,
+          "end_lap": 25,
+          "tyre_age_laps": 0
+        },
+        {
+          "stint_id": 2,
+          "compound": "HARD",
+          "start_lap": 26,
+          "end_lap": 57,
+          "tyre_age_laps": 0
+        }
+      ],
+      "lap_times": [
+        {
+          "lap": 1,
+          "compound": "MEDIUM",
+          "lap_time": 130.501,
+          "stint_id": 1,
+          "tyre_age": 1
+        },
+        {
+          "lap": 2,
+          "compound": "MEDIUM",
+          "lap_time": 130.374,
+          "stint_id": 1,
+          "tyre_age": 2
+        },
+        {
+          "lap": 3,
+          "compound": "MEDIUM",
+          "lap_time": 130.248,
+          "stint_id": 1,
+          "tyre_age": 3
+        },
+        {
+          "lap": 4,
+          "compound": "MEDIUM",
+          "lap_time": 130.121,
+          "stint_id": 1,
+          "tyre_age": 4
+        },
+        {
+          "lap": 5,
+          "compound": "MEDIUM",
+          "lap_time": 130.161,
+          "stint_id": 1,
+          "tyre_age": 5
+        },
+        {
+          "lap": 6,
+          "compound": "MEDIUM",
+          "lap_time": 130.201,
+          "stint_id": 1,
+          "tyre_age": 6
+        },
+        {
+          "lap": 7,
+          "compound": "MEDIUM",
+          "lap_time": 130.241,
+          "stint_id": 1,
+          "tyre_age": 7
+        },
+        {
+          "lap": 8,
+          "compound": "MEDIUM",
+          "lap_time": 130.281,
+          "stint_id": 1,
+          "tyre_age": 8
+        },
+        {
+          "lap": 9,
+          "compound": "MEDIUM",
+          "lap_time": 130.321,
+          "stint_id": 1,
+          "tyre_age": 9
+        },
+        {
+          "lap": 10,
+          "compound": "MEDIUM",
+          "lap_time": 130.361,
+          "stint_id": 1,
+          "tyre_age": 10
+        },
+        {
+          "lap": 11,
+          "compound": "MEDIUM",
+          "lap_time": 130.401,
+          "stint_id": 1,
+          "tyre_age": 11
+        },
+        {
+          "lap": 12,
+          "compound": "MEDIUM",
+          "lap_time": 130.441,
+          "stint_id": 1,
+          "tyre_age": 12
+        },
+        {
+          "lap": 13,
+          "compound": "MEDIUM",
+          "lap_time": 130.481,
+          "stint_id": 1,
+          "tyre_age": 13
+        },
+        {
+          "lap": 14,
+          "compound": "MEDIUM",
+          "lap_time": 130.521,
+          "stint_id": 1,
+          "tyre_age": 14
+        },
+        {
+          "lap": 15,
+          "compound": "MEDIUM",
+          "lap_time": 130.561,
+          "stint_id": 1,
+          "tyre_age": 15
+        },
+        {
+          "lap": 16,
+          "compound": "MEDIUM",
+          "lap_time": 130.601,
+          "stint_id": 1,
+          "tyre_age": 16
+        },
+        {
+          "lap": 17,
+          "compound": "MEDIUM",
+          "lap_time": 130.641,
+          "stint_id": 1,
+          "tyre_age": 17
+        },
+        {
+          "lap": 18,
+          "compound": "MEDIUM",
+          "lap_time": 130.681,
+          "stint_id": 1,
+          "tyre_age": 18
+        },
+        {
+          "lap": 19,
+          "compound": "MEDIUM",
+          "lap_time": 130.721,
+          "stint_id": 1,
+          "tyre_age": 19
+        },
+        {
+          "lap": 20,
+          "compound": "MEDIUM",
+          "lap_time": 130.761,
+          "stint_id": 1,
+          "tyre_age": 20
+        },
+        {
+          "lap": 21,
+          "compound": "MEDIUM",
+          "lap_time": 130.801,
+          "stint_id": 1,
+          "tyre_age": 21
+        },
+        {
+          "lap": 22,
+          "compound": "MEDIUM",
+          "lap_time": 130.841,
+          "stint_id": 1,
+          "tyre_age": 22
+        },
+        {
+          "lap": 23,
+          "compound": "MEDIUM",
+          "lap_time": 130.881,
+          "stint_id": 1,
+          "tyre_age": 23
+        },
+        {
+          "lap": 24,
+          "compound": "MEDIUM",
+          "lap_time": 130.921,
+          "stint_id": 1,
+          "tyre_age": 24
+        },
+        {
+          "lap": 25,
+          "compound": "MEDIUM",
+          "lap_time": 130.961,
+          "stint_id": 1,
+          "tyre_age": 25
+        },
+        {
+          "lap": 26,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 1
+        },
+        {
+          "lap": 27,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 2
+        },
+        {
+          "lap": 28,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 3
+        },
+        {
+          "lap": 29,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 4
+        },
+        {
+          "lap": 30,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 5
+        },
+        {
+          "lap": 31,
+          "compound": "HARD",
+          "lap_time": 130.381,
+          "stint_id": 2,
+          "tyre_age": 6
+        },
+        {
+          "lap": 32,
+          "compound": "HARD",
+          "lap_time": 130.401,
+          "stint_id": 2,
+          "tyre_age": 7
+        },
+        {
+          "lap": 33,
+          "compound": "HARD",
+          "lap_time": 130.421,
+          "stint_id": 2,
+          "tyre_age": 8
+        },
+        {
+          "lap": 34,
+          "compound": "HARD",
+          "lap_time": 130.441,
+          "stint_id": 2,
+          "tyre_age": 9
+        },
+        {
+          "lap": 35,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 10
+        },
+        {
+          "lap": 36,
+          "compound": "HARD",
+          "lap_time": 130.481,
+          "stint_id": 2,
+          "tyre_age": 11
+        },
+        {
+          "lap": 37,
+          "compound": "HARD",
+          "lap_time": 130.501,
+          "stint_id": 2,
+          "tyre_age": 12
+        },
+        {
+          "lap": 38,
+          "compound": "HARD",
+          "lap_time": 130.521,
+          "stint_id": 2,
+          "tyre_age": 13
+        },
+        {
+          "lap": 39,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 14
+        },
+        {
+          "lap": 40,
+          "compound": "HARD",
+          "lap_time": 130.561,
+          "stint_id": 2,
+          "tyre_age": 15
+        },
+        {
+          "lap": 41,
+          "compound": "HARD",
+          "lap_time": 130.581,
+          "stint_id": 2,
+          "tyre_age": 16
+        },
+        {
+          "lap": 42,
+          "compound": "HARD",
+          "lap_time": 130.601,
+          "stint_id": 2,
+          "tyre_age": 17
+        },
+        {
+          "lap": 43,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 18
+        },
+        {
+          "lap": 44,
+          "compound": "HARD",
+          "lap_time": 130.641,
+          "stint_id": 2,
+          "tyre_age": 19
+        },
+        {
+          "lap": 45,
+          "compound": "HARD",
+          "lap_time": 130.661,
+          "stint_id": 2,
+          "tyre_age": 20
+        },
+        {
+          "lap": 46,
+          "compound": "HARD",
+          "lap_time": 130.681,
+          "stint_id": 2,
+          "tyre_age": 21
+        },
+        {
+          "lap": 47,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 22
+        },
+        {
+          "lap": 48,
+          "compound": "HARD",
+          "lap_time": 130.721,
+          "stint_id": 2,
+          "tyre_age": 23
+        },
+        {
+          "lap": 49,
+          "compound": "HARD",
+          "lap_time": 130.741,
+          "stint_id": 2,
+          "tyre_age": 24
+        },
+        {
+          "lap": 50,
+          "compound": "HARD",
+          "lap_time": 130.761,
+          "stint_id": 2,
+          "tyre_age": 25
+        },
+        {
+          "lap": 51,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 26
+        },
+        {
+          "lap": 52,
+          "compound": "HARD",
+          "lap_time": 130.801,
+          "stint_id": 2,
+          "tyre_age": 27
+        },
+        {
+          "lap": 53,
+          "compound": "HARD",
+          "lap_time": 130.821,
+          "stint_id": 2,
+          "tyre_age": 28
+        },
+        {
+          "lap": 54,
+          "compound": "HARD",
+          "lap_time": 130.841,
+          "stint_id": 2,
+          "tyre_age": 29
+        },
+        {
+          "lap": 55,
+          "compound": "HARD",
+          "lap_time": 130.861,
+          "stint_id": 2,
+          "tyre_age": 30
+        },
+        {
+          "lap": 56,
+          "compound": "HARD",
+          "lap_time": 130.881,
+          "stint_id": 2,
+          "tyre_age": 31
+        },
+        {
+          "lap": 57,
+          "compound": "HARD",
+          "lap_time": 130.901,
+          "stint_id": 2,
+          "tyre_age": 32
+        }
+      ]
+    },
+    {
+      "strategy_id": "1S_MEDIUM_HARD",
+      "total_time_s": 7465.537,
+      "pit_losses_s": 22.0,
+      "n_stops": 1,
+      "stints": [
+        {
+          "stint_id": 1,
+          "compound": "MEDIUM",
+          "start_lap": 1,
+          "end_lap": 26,
+          "tyre_age_laps": 0
+        },
+        {
+          "stint_id": 2,
+          "compound": "HARD",
+          "start_lap": 27,
+          "end_lap": 57,
+          "tyre_age_laps": 0
+        }
+      ],
+      "lap_times": [
+        {
+          "lap": 1,
+          "compound": "MEDIUM",
+          "lap_time": 130.501,
+          "stint_id": 1,
+          "tyre_age": 1
+        },
+        {
+          "lap": 2,
+          "compound": "MEDIUM",
+          "lap_time": 130.374,
+          "stint_id": 1,
+          "tyre_age": 2
+        },
+        {
+          "lap": 3,
+          "compound": "MEDIUM",
+          "lap_time": 130.248,
+          "stint_id": 1,
+          "tyre_age": 3
+        },
+        {
+          "lap": 4,
+          "compound": "MEDIUM",
+          "lap_time": 130.121,
+          "stint_id": 1,
+          "tyre_age": 4
+        },
+        {
+          "lap": 5,
+          "compound": "MEDIUM",
+          "lap_time": 130.161,
+          "stint_id": 1,
+          "tyre_age": 5
+        },
+        {
+          "lap": 6,
+          "compound": "MEDIUM",
+          "lap_time": 130.201,
+          "stint_id": 1,
+          "tyre_age": 6
+        },
+        {
+          "lap": 7,
+          "compound": "MEDIUM",
+          "lap_time": 130.241,
+          "stint_id": 1,
+          "tyre_age": 7
+        },
+        {
+          "lap": 8,
+          "compound": "MEDIUM",
+          "lap_time": 130.281,
+          "stint_id": 1,
+          "tyre_age": 8
+        },
+        {
+          "lap": 9,
+          "compound": "MEDIUM",
+          "lap_time": 130.321,
+          "stint_id": 1,
+          "tyre_age": 9
+        },
+        {
+          "lap": 10,
+          "compound": "MEDIUM",
+          "lap_time": 130.361,
+          "stint_id": 1,
+          "tyre_age": 10
+        },
+        {
+          "lap": 11,
+          "compound": "MEDIUM",
+          "lap_time": 130.401,
+          "stint_id": 1,
+          "tyre_age": 11
+        },
+        {
+          "lap": 12,
+          "compound": "MEDIUM",
+          "lap_time": 130.441,
+          "stint_id": 1,
+          "tyre_age": 12
+        },
+        {
+          "lap": 13,
+          "compound": "MEDIUM",
+          "lap_time": 130.481,
+          "stint_id": 1,
+          "tyre_age": 13
+        },
+        {
+          "lap": 14,
+          "compound": "MEDIUM",
+          "lap_time": 130.521,
+          "stint_id": 1,
+          "tyre_age": 14
+        },
+        {
+          "lap": 15,
+          "compound": "MEDIUM",
+          "lap_time": 130.561,
+          "stint_id": 1,
+          "tyre_age": 15
+        },
+        {
+          "lap": 16,
+          "compound": "MEDIUM",
+          "lap_time": 130.601,
+          "stint_id": 1,
+          "tyre_age": 16
+        },
+        {
+          "lap": 17,
+          "compound": "MEDIUM",
+          "lap_time": 130.641,
+          "stint_id": 1,
+          "tyre_age": 17
+        },
+        {
+          "lap": 18,
+          "compound": "MEDIUM",
+          "lap_time": 130.681,
+          "stint_id": 1,
+          "tyre_age": 18
+        },
+        {
+          "lap": 19,
+          "compound": "MEDIUM",
+          "lap_time": 130.721,
+          "stint_id": 1,
+          "tyre_age": 19
+        },
+        {
+          "lap": 20,
+          "compound": "MEDIUM",
+          "lap_time": 130.761,
+          "stint_id": 1,
+          "tyre_age": 20
+        },
+        {
+          "lap": 21,
+          "compound": "MEDIUM",
+          "lap_time": 130.801,
+          "stint_id": 1,
+          "tyre_age": 21
+        },
+        {
+          "lap": 22,
+          "compound": "MEDIUM",
+          "lap_time": 130.841,
+          "stint_id": 1,
+          "tyre_age": 22
+        },
+        {
+          "lap": 23,
+          "compound": "MEDIUM",
+          "lap_time": 130.881,
+          "stint_id": 1,
+          "tyre_age": 23
+        },
+        {
+          "lap": 24,
+          "compound": "MEDIUM",
+          "lap_time": 130.921,
+          "stint_id": 1,
+          "tyre_age": 24
+        },
+        {
+          "lap": 25,
+          "compound": "MEDIUM",
+          "lap_time": 130.961,
+          "stint_id": 1,
+          "tyre_age": 25
+        },
+        {
+          "lap": 26,
+          "compound": "MEDIUM",
+          "lap_time": 131.001,
+          "stint_id": 1,
+          "tyre_age": 26
+        },
+        {
+          "lap": 27,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 1
+        },
+        {
+          "lap": 28,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 2
+        },
+        {
+          "lap": 29,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 3
+        },
+        {
+          "lap": 30,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 4
+        },
+        {
+          "lap": 31,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 5
+        },
+        {
+          "lap": 32,
+          "compound": "HARD",
+          "lap_time": 130.381,
+          "stint_id": 2,
+          "tyre_age": 6
+        },
+        {
+          "lap": 33,
+          "compound": "HARD",
+          "lap_time": 130.401,
+          "stint_id": 2,
+          "tyre_age": 7
+        },
+        {
+          "lap": 34,
+          "compound": "HARD",
+          "lap_time": 130.421,
+          "stint_id": 2,
+          "tyre_age": 8
+        },
+        {
+          "lap": 35,
+          "compound": "HARD",
+          "lap_time": 130.441,
+          "stint_id": 2,
+          "tyre_age": 9
+        },
+        {
+          "lap": 36,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 10
+        },
+        {
+          "lap": 37,
+          "compound": "HARD",
+          "lap_time": 130.481,
+          "stint_id": 2,
+          "tyre_age": 11
+        },
+        {
+          "lap": 38,
+          "compound": "HARD",
+          "lap_time": 130.501,
+          "stint_id": 2,
+          "tyre_age": 12
+        },
+        {
+          "lap": 39,
+          "compound": "HARD",
+          "lap_time": 130.521,
+          "stint_id": 2,
+          "tyre_age": 13
+        },
+        {
+          "lap": 40,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 14
+        },
+        {
+          "lap": 41,
+          "compound": "HARD",
+          "lap_time": 130.561,
+          "stint_id": 2,
+          "tyre_age": 15
+        },
+        {
+          "lap": 42,
+          "compound": "HARD",
+          "lap_time": 130.581,
+          "stint_id": 2,
+          "tyre_age": 16
+        },
+        {
+          "lap": 43,
+          "compound": "HARD",
+          "lap_time": 130.601,
+          "stint_id": 2,
+          "tyre_age": 17
+        },
+        {
+          "lap": 44,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 18
+        },
+        {
+          "lap": 45,
+          "compound": "HARD",
+          "lap_time": 130.641,
+          "stint_id": 2,
+          "tyre_age": 19
+        },
+        {
+          "lap": 46,
+          "compound": "HARD",
+          "lap_time": 130.661,
+          "stint_id": 2,
+          "tyre_age": 20
+        },
+        {
+          "lap": 47,
+          "compound": "HARD",
+          "lap_time": 130.681,
+          "stint_id": 2,
+          "tyre_age": 21
+        },
+        {
+          "lap": 48,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 22
+        },
+        {
+          "lap": 49,
+          "compound": "HARD",
+          "lap_time": 130.721,
+          "stint_id": 2,
+          "tyre_age": 23
+        },
+        {
+          "lap": 50,
+          "compound": "HARD",
+          "lap_time": 130.741,
+          "stint_id": 2,
+          "tyre_age": 24
+        },
+        {
+          "lap": 51,
+          "compound": "HARD",
+          "lap_time": 130.761,
+          "stint_id": 2,
+          "tyre_age": 25
+        },
+        {
+          "lap": 52,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 26
+        },
+        {
+          "lap": 53,
+          "compound": "HARD",
+          "lap_time": 130.801,
+          "stint_id": 2,
+          "tyre_age": 27
+        },
+        {
+          "lap": 54,
+          "compound": "HARD",
+          "lap_time": 130.821,
+          "stint_id": 2,
+          "tyre_age": 28
+        },
+        {
+          "lap": 55,
+          "compound": "HARD",
+          "lap_time": 130.841,
+          "stint_id": 2,
+          "tyre_age": 29
+        },
+        {
+          "lap": 56,
+          "compound": "HARD",
+          "lap_time": 130.861,
+          "stint_id": 2,
+          "tyre_age": 30
+        },
+        {
+          "lap": 57,
+          "compound": "HARD",
+          "lap_time": 130.881,
+          "stint_id": 2,
+          "tyre_age": 31
+        }
+      ]
+    },
+    {
+      "strategy_id": "1S_MEDIUM_HARD",
+      "total_time_s": 7465.697,
+      "pit_losses_s": 22.0,
+      "n_stops": 1,
+      "stints": [
+        {
+          "stint_id": 1,
+          "compound": "MEDIUM",
+          "start_lap": 1,
+          "end_lap": 27,
+          "tyre_age_laps": 0
+        },
+        {
+          "stint_id": 2,
+          "compound": "HARD",
+          "start_lap": 28,
+          "end_lap": 57,
+          "tyre_age_laps": 0
+        }
+      ],
+      "lap_times": [
+        {
+          "lap": 1,
+          "compound": "MEDIUM",
+          "lap_time": 130.501,
+          "stint_id": 1,
+          "tyre_age": 1
+        },
+        {
+          "lap": 2,
+          "compound": "MEDIUM",
+          "lap_time": 130.374,
+          "stint_id": 1,
+          "tyre_age": 2
+        },
+        {
+          "lap": 3,
+          "compound": "MEDIUM",
+          "lap_time": 130.248,
+          "stint_id": 1,
+          "tyre_age": 3
+        },
+        {
+          "lap": 4,
+          "compound": "MEDIUM",
+          "lap_time": 130.121,
+          "stint_id": 1,
+          "tyre_age": 4
+        },
+        {
+          "lap": 5,
+          "compound": "MEDIUM",
+          "lap_time": 130.161,
+          "stint_id": 1,
+          "tyre_age": 5
+        },
+        {
+          "lap": 6,
+          "compound": "MEDIUM",
+          "lap_time": 130.201,
+          "stint_id": 1,
+          "tyre_age": 6
+        },
+        {
+          "lap": 7,
+          "compound": "MEDIUM",
+          "lap_time": 130.241,
+          "stint_id": 1,
+          "tyre_age": 7
+        },
+        {
+          "lap": 8,
+          "compound": "MEDIUM",
+          "lap_time": 130.281,
+          "stint_id": 1,
+          "tyre_age": 8
+        },
+        {
+          "lap": 9,
+          "compound": "MEDIUM",
+          "lap_time": 130.321,
+          "stint_id": 1,
+          "tyre_age": 9
+        },
+        {
+          "lap": 10,
+          "compound": "MEDIUM",
+          "lap_time": 130.361,
+          "stint_id": 1,
+          "tyre_age": 10
+        },
+        {
+          "lap": 11,
+          "compound": "MEDIUM",
+          "lap_time": 130.401,
+          "stint_id": 1,
+          "tyre_age": 11
+        },
+        {
+          "lap": 12,
+          "compound": "MEDIUM",
+          "lap_time": 130.441,
+          "stint_id": 1,
+          "tyre_age": 12
+        },
+        {
+          "lap": 13,
+          "compound": "MEDIUM",
+          "lap_time": 130.481,
+          "stint_id": 1,
+          "tyre_age": 13
+        },
+        {
+          "lap": 14,
+          "compound": "MEDIUM",
+          "lap_time": 130.521,
+          "stint_id": 1,
+          "tyre_age": 14
+        },
+        {
+          "lap": 15,
+          "compound": "MEDIUM",
+          "lap_time": 130.561,
+          "stint_id": 1,
+          "tyre_age": 15
+        },
+        {
+          "lap": 16,
+          "compound": "MEDIUM",
+          "lap_time": 130.601,
+          "stint_id": 1,
+          "tyre_age": 16
+        },
+        {
+          "lap": 17,
+          "compound": "MEDIUM",
+          "lap_time": 130.641,
+          "stint_id": 1,
+          "tyre_age": 17
+        },
+        {
+          "lap": 18,
+          "compound": "MEDIUM",
+          "lap_time": 130.681,
+          "stint_id": 1,
+          "tyre_age": 18
+        },
+        {
+          "lap": 19,
+          "compound": "MEDIUM",
+          "lap_time": 130.721,
+          "stint_id": 1,
+          "tyre_age": 19
+        },
+        {
+          "lap": 20,
+          "compound": "MEDIUM",
+          "lap_time": 130.761,
+          "stint_id": 1,
+          "tyre_age": 20
+        },
+        {
+          "lap": 21,
+          "compound": "MEDIUM",
+          "lap_time": 130.801,
+          "stint_id": 1,
+          "tyre_age": 21
+        },
+        {
+          "lap": 22,
+          "compound": "MEDIUM",
+          "lap_time": 130.841,
+          "stint_id": 1,
+          "tyre_age": 22
+        },
+        {
+          "lap": 23,
+          "compound": "MEDIUM",
+          "lap_time": 130.881,
+          "stint_id": 1,
+          "tyre_age": 23
+        },
+        {
+          "lap": 24,
+          "compound": "MEDIUM",
+          "lap_time": 130.921,
+          "stint_id": 1,
+          "tyre_age": 24
+        },
+        {
+          "lap": 25,
+          "compound": "MEDIUM",
+          "lap_time": 130.961,
+          "stint_id": 1,
+          "tyre_age": 25
+        },
+        {
+          "lap": 26,
+          "compound": "MEDIUM",
+          "lap_time": 131.001,
+          "stint_id": 1,
+          "tyre_age": 26
+        },
+        {
+          "lap": 27,
+          "compound": "MEDIUM",
+          "lap_time": 131.041,
+          "stint_id": 1,
+          "tyre_age": 27
+        },
+        {
+          "lap": 28,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 1
+        },
+        {
+          "lap": 29,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 2
+        },
+        {
+          "lap": 30,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 3
+        },
+        {
+          "lap": 31,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 4
+        },
+        {
+          "lap": 32,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 5
+        },
+        {
+          "lap": 33,
+          "compound": "HARD",
+          "lap_time": 130.381,
+          "stint_id": 2,
+          "tyre_age": 6
+        },
+        {
+          "lap": 34,
+          "compound": "HARD",
+          "lap_time": 130.401,
+          "stint_id": 2,
+          "tyre_age": 7
+        },
+        {
+          "lap": 35,
+          "compound": "HARD",
+          "lap_time": 130.421,
+          "stint_id": 2,
+          "tyre_age": 8
+        },
+        {
+          "lap": 36,
+          "compound": "HARD",
+          "lap_time": 130.441,
+          "stint_id": 2,
+          "tyre_age": 9
+        },
+        {
+          "lap": 37,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 10
+        },
+        {
+          "lap": 38,
+          "compound": "HARD",
+          "lap_time": 130.481,
+          "stint_id": 2,
+          "tyre_age": 11
+        },
+        {
+          "lap": 39,
+          "compound": "HARD",
+          "lap_time": 130.501,
+          "stint_id": 2,
+          "tyre_age": 12
+        },
+        {
+          "lap": 40,
+          "compound": "HARD",
+          "lap_time": 130.521,
+          "stint_id": 2,
+          "tyre_age": 13
+        },
+        {
+          "lap": 41,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 14
+        },
+        {
+          "lap": 42,
+          "compound": "HARD",
+          "lap_time": 130.561,
+          "stint_id": 2,
+          "tyre_age": 15
+        },
+        {
+          "lap": 43,
+          "compound": "HARD",
+          "lap_time": 130.581,
+          "stint_id": 2,
+          "tyre_age": 16
+        },
+        {
+          "lap": 44,
+          "compound": "HARD",
+          "lap_time": 130.601,
+          "stint_id": 2,
+          "tyre_age": 17
+        },
+        {
+          "lap": 45,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 18
+        },
+        {
+          "lap": 46,
+          "compound": "HARD",
+          "lap_time": 130.641,
+          "stint_id": 2,
+          "tyre_age": 19
+        },
+        {
+          "lap": 47,
+          "compound": "HARD",
+          "lap_time": 130.661,
+          "stint_id": 2,
+          "tyre_age": 20
+        },
+        {
+          "lap": 48,
+          "compound": "HARD",
+          "lap_time": 130.681,
+          "stint_id": 2,
+          "tyre_age": 21
+        },
+        {
+          "lap": 49,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 22
+        },
+        {
+          "lap": 50,
+          "compound": "HARD",
+          "lap_time": 130.721,
+          "stint_id": 2,
+          "tyre_age": 23
+        },
+        {
+          "lap": 51,
+          "compound": "HARD",
+          "lap_time": 130.741,
+          "stint_id": 2,
+          "tyre_age": 24
+        },
+        {
+          "lap": 52,
+          "compound": "HARD",
+          "lap_time": 130.761,
+          "stint_id": 2,
+          "tyre_age": 25
+        },
+        {
+          "lap": 53,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 26
+        },
+        {
+          "lap": 54,
+          "compound": "HARD",
+          "lap_time": 130.801,
+          "stint_id": 2,
+          "tyre_age": 27
+        },
+        {
+          "lap": 55,
+          "compound": "HARD",
+          "lap_time": 130.821,
+          "stint_id": 2,
+          "tyre_age": 28
+        },
+        {
+          "lap": 56,
+          "compound": "HARD",
+          "lap_time": 130.841,
+          "stint_id": 2,
+          "tyre_age": 29
+        },
+        {
+          "lap": 57,
+          "compound": "HARD",
+          "lap_time": 130.861,
+          "stint_id": 2,
+          "tyre_age": 30
+        }
+      ]
+    },
+    {
+      "strategy_id": "1S_MEDIUM_HARD",
+      "total_time_s": 7465.917,
+      "pit_losses_s": 22.0,
+      "n_stops": 1,
+      "stints": [
+        {
+          "stint_id": 1,
+          "compound": "MEDIUM",
+          "start_lap": 1,
+          "end_lap": 28,
+          "tyre_age_laps": 0
+        },
+        {
+          "stint_id": 2,
+          "compound": "HARD",
+          "start_lap": 29,
+          "end_lap": 57,
+          "tyre_age_laps": 0
+        }
+      ],
+      "lap_times": [
+        {
+          "lap": 1,
+          "compound": "MEDIUM",
+          "lap_time": 130.501,
+          "stint_id": 1,
+          "tyre_age": 1
+        },
+        {
+          "lap": 2,
+          "compound": "MEDIUM",
+          "lap_time": 130.374,
+          "stint_id": 1,
+          "tyre_age": 2
+        },
+        {
+          "lap": 3,
+          "compound": "MEDIUM",
+          "lap_time": 130.248,
+          "stint_id": 1,
+          "tyre_age": 3
+        },
+        {
+          "lap": 4,
+          "compound": "MEDIUM",
+          "lap_time": 130.121,
+          "stint_id": 1,
+          "tyre_age": 4
+        },
+        {
+          "lap": 5,
+          "compound": "MEDIUM",
+          "lap_time": 130.161,
+          "stint_id": 1,
+          "tyre_age": 5
+        },
+        {
+          "lap": 6,
+          "compound": "MEDIUM",
+          "lap_time": 130.201,
+          "stint_id": 1,
+          "tyre_age": 6
+        },
+        {
+          "lap": 7,
+          "compound": "MEDIUM",
+          "lap_time": 130.241,
+          "stint_id": 1,
+          "tyre_age": 7
+        },
+        {
+          "lap": 8,
+          "compound": "MEDIUM",
+          "lap_time": 130.281,
+          "stint_id": 1,
+          "tyre_age": 8
+        },
+        {
+          "lap": 9,
+          "compound": "MEDIUM",
+          "lap_time": 130.321,
+          "stint_id": 1,
+          "tyre_age": 9
+        },
+        {
+          "lap": 10,
+          "compound": "MEDIUM",
+          "lap_time": 130.361,
+          "stint_id": 1,
+          "tyre_age": 10
+        },
+        {
+          "lap": 11,
+          "compound": "MEDIUM",
+          "lap_time": 130.401,
+          "stint_id": 1,
+          "tyre_age": 11
+        },
+        {
+          "lap": 12,
+          "compound": "MEDIUM",
+          "lap_time": 130.441,
+          "stint_id": 1,
+          "tyre_age": 12
+        },
+        {
+          "lap": 13,
+          "compound": "MEDIUM",
+          "lap_time": 130.481,
+          "stint_id": 1,
+          "tyre_age": 13
+        },
+        {
+          "lap": 14,
+          "compound": "MEDIUM",
+          "lap_time": 130.521,
+          "stint_id": 1,
+          "tyre_age": 14
+        },
+        {
+          "lap": 15,
+          "compound": "MEDIUM",
+          "lap_time": 130.561,
+          "stint_id": 1,
+          "tyre_age": 15
+        },
+        {
+          "lap": 16,
+          "compound": "MEDIUM",
+          "lap_time": 130.601,
+          "stint_id": 1,
+          "tyre_age": 16
+        },
+        {
+          "lap": 17,
+          "compound": "MEDIUM",
+          "lap_time": 130.641,
+          "stint_id": 1,
+          "tyre_age": 17
+        },
+        {
+          "lap": 18,
+          "compound": "MEDIUM",
+          "lap_time": 130.681,
+          "stint_id": 1,
+          "tyre_age": 18
+        },
+        {
+          "lap": 19,
+          "compound": "MEDIUM",
+          "lap_time": 130.721,
+          "stint_id": 1,
+          "tyre_age": 19
+        },
+        {
+          "lap": 20,
+          "compound": "MEDIUM",
+          "lap_time": 130.761,
+          "stint_id": 1,
+          "tyre_age": 20
+        },
+        {
+          "lap": 21,
+          "compound": "MEDIUM",
+          "lap_time": 130.801,
+          "stint_id": 1,
+          "tyre_age": 21
+        },
+        {
+          "lap": 22,
+          "compound": "MEDIUM",
+          "lap_time": 130.841,
+          "stint_id": 1,
+          "tyre_age": 22
+        },
+        {
+          "lap": 23,
+          "compound": "MEDIUM",
+          "lap_time": 130.881,
+          "stint_id": 1,
+          "tyre_age": 23
+        },
+        {
+          "lap": 24,
+          "compound": "MEDIUM",
+          "lap_time": 130.921,
+          "stint_id": 1,
+          "tyre_age": 24
+        },
+        {
+          "lap": 25,
+          "compound": "MEDIUM",
+          "lap_time": 130.961,
+          "stint_id": 1,
+          "tyre_age": 25
+        },
+        {
+          "lap": 26,
+          "compound": "MEDIUM",
+          "lap_time": 131.001,
+          "stint_id": 1,
+          "tyre_age": 26
+        },
+        {
+          "lap": 27,
+          "compound": "MEDIUM",
+          "lap_time": 131.041,
+          "stint_id": 1,
+          "tyre_age": 27
+        },
+        {
+          "lap": 28,
+          "compound": "MEDIUM",
+          "lap_time": 131.081,
+          "stint_id": 1,
+          "tyre_age": 28
+        },
+        {
+          "lap": 29,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 1
+        },
+        {
+          "lap": 30,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 2
+        },
+        {
+          "lap": 31,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 3
+        },
+        {
+          "lap": 32,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 4
+        },
+        {
+          "lap": 33,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 5
+        },
+        {
+          "lap": 34,
+          "compound": "HARD",
+          "lap_time": 130.381,
+          "stint_id": 2,
+          "tyre_age": 6
+        },
+        {
+          "lap": 35,
+          "compound": "HARD",
+          "lap_time": 130.401,
+          "stint_id": 2,
+          "tyre_age": 7
+        },
+        {
+          "lap": 36,
+          "compound": "HARD",
+          "lap_time": 130.421,
+          "stint_id": 2,
+          "tyre_age": 8
+        },
+        {
+          "lap": 37,
+          "compound": "HARD",
+          "lap_time": 130.441,
+          "stint_id": 2,
+          "tyre_age": 9
+        },
+        {
+          "lap": 38,
+          "compound": "HARD",
+          "lap_time": 130.461,
+          "stint_id": 2,
+          "tyre_age": 10
+        },
+        {
+          "lap": 39,
+          "compound": "HARD",
+          "lap_time": 130.481,
+          "stint_id": 2,
+          "tyre_age": 11
+        },
+        {
+          "lap": 40,
+          "compound": "HARD",
+          "lap_time": 130.501,
+          "stint_id": 2,
+          "tyre_age": 12
+        },
+        {
+          "lap": 41,
+          "compound": "HARD",
+          "lap_time": 130.521,
+          "stint_id": 2,
+          "tyre_age": 13
+        },
+        {
+          "lap": 42,
+          "compound": "HARD",
+          "lap_time": 130.541,
+          "stint_id": 2,
+          "tyre_age": 14
+        },
+        {
+          "lap": 43,
+          "compound": "HARD",
+          "lap_time": 130.561,
+          "stint_id": 2,
+          "tyre_age": 15
+        },
+        {
+          "lap": 44,
+          "compound": "HARD",
+          "lap_time": 130.581,
+          "stint_id": 2,
+          "tyre_age": 16
+        },
+        {
+          "lap": 45,
+          "compound": "HARD",
+          "lap_time": 130.601,
+          "stint_id": 2,
+          "tyre_age": 17
+        },
+        {
+          "lap": 46,
+          "compound": "HARD",
+          "lap_time": 130.621,
+          "stint_id": 2,
+          "tyre_age": 18
+        },
+        {
+          "lap": 47,
+          "compound": "HARD",
+          "lap_time": 130.641,
+          "stint_id": 2,
+          "tyre_age": 19
+        },
+        {
+          "lap": 48,
+          "compound": "HARD",
+          "lap_time": 130.661,
+          "stint_id": 2,
+          "tyre_age": 20
+        },
+        {
+          "lap": 49,
+          "compound": "HARD",
+          "lap_time": 130.681,
+          "stint_id": 2,
+          "tyre_age": 21
+        },
+        {
+          "lap": 50,
+          "compound": "HARD",
+          "lap_time": 130.701,
+          "stint_id": 2,
+          "tyre_age": 22
+        },
+        {
+          "lap": 51,
+          "compound": "HARD",
+          "lap_time": 130.721,
+          "stint_id": 2,
+          "tyre_age": 23
+        },
+        {
+          "lap": 52,
+          "compound": "HARD",
+          "lap_time": 130.741,
+          "stint_id": 2,
+          "tyre_age": 24
+        },
+        {
+          "lap": 53,
+          "compound": "HARD",
+          "lap_time": 130.761,
+          "stint_id": 2,
+          "tyre_age": 25
+        },
+        {
+          "lap": 54,
+          "compound": "HARD",
+          "lap_time": 130.781,
+          "stint_id": 2,
+          "tyre_age": 26
+        },
+        {
+          "lap": 55,
+          "compound": "HARD",
+          "lap_time": 130.801,
+          "stint_id": 2,
+          "tyre_age": 27
+        },
+        {
+          "lap": 56,
+          "compound": "HARD",
+          "lap_time": 130.821,
+          "stint_id": 2,
+          "tyre_age": 28
+        },
+        {
+          "lap": 57,
+          "compound": "HARD",
+          "lap_time": 130.841,
+          "stint_id": 2,
+          "tyre_age": 29
+        }
+      ]
+    }
+  ],
+  "tyre_degradation": [
+    {
+      "lap_id": 0,
+      "tyre_age_laps": 0,
+      "compound": "MEDIUM",
+      "avg_lap_speed": 190.0,
+      "speed_loss_vs_new": 0.0,
+      "predicted_deg_rate": -0.02
+    },
+    {
+      "lap_id": 1,
+      "tyre_age_laps": 1,
+      "compound": "MEDIUM",
+      "avg_lap_speed": 190.02,
+      "speed_loss_vs_new": -0.02,
+      "predicted_deg_rate": -0.02
+    }
+  ]
+}
