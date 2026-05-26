@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 Performance Intelligence System</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+  .header{background:#111;border-bottom:1px solid #222;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+  .header-title{font-size:16px;font-weight:600;color:#fff}
+  .header-sub{font-size:12px;color:#666;margin-top:2px}
+  .badge{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:500}
+  .b-green{background:#0d2e0d;color:#4ade80;border:1px solid #166016}
+  .b-red{background:#2e0d0d;color:#f87171;border:1px solid #601616}
+  .b-blue{background:#0d1a2e;color:#60a5fa;border:1px solid #163060}
+  .b-amber{background:#2e200d;color:#fbbf24;border:1px solid #604010}
+  .tabs{display:flex;gap:0;background:#111;border-bottom:1px solid #222;padding:0 24px}
+  .tab{padding:12px 18px;font-size:13px;font-weight:500;color:#666;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s}
+  .tab:hover{color:#aaa}
+  .tab.active{color:#fff;border-bottom-color:#e10600}
+  .panel{display:none;padding:24px;animation:fadeIn .2s}
+  .panel.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  .mg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+  .mc{background:#161616;border:1px solid #222;border-radius:10px;padding:14px}
+  .ml{font-size:11px;color:#666;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+  .mv{font-size:22px;font-weight:600;color:#fff}
+  .ms{font-size:11px;color:#444;margin-top:3px}
+  .card{background:#161616;border:1px solid #222;border-radius:10px;padding:16px 20px;margin-bottom:14px}
+  .card-title{font-size:13px;font-weight:600;color:#aaa;margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:13px}
+  .row:last-child{border-bottom:none}
+  .rl{color:#666}
+  .rv{font-weight:500;color:#e0e0e0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stint{display:flex;height:24px;border-radius:6px;overflow:hidden;gap:2px}
+  .seg{display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;border-radius:4px}
+  .alert-box{border-left:3px solid #f59e0b;background:#1a1500;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:#fbbf24;margin-bottom:10px}
+  .good-box{border-left:3px solid #22c55e;background:#001a0a;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:#4ade80;margin-bottom:10px}
+  .info-box{border-left:3px solid #3b82f6;background:#001020;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:#60a5fa;margin-bottom:10px}
+  .bar-bg{background:#222;border-radius:4px;height:6px;overflow:hidden;margin-top:5px}
+  .bar-fill{height:6px;border-radius:4px;transition:width .8s ease}
+  .sec{font-size:11px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;margin-top:20px}
+  .sec:first-child{margin-top:0}
+  .strat-grid{display:grid;grid-template-columns:1fr 70px 70px 100px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:13px}
+  .strat-grid:last-child{border-bottom:none}
+  .strat-head{font-size:11px;color:#555;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .winner{color:#4ade80;font-weight:600}
+  .loser{color:#f87171}
+  .neutral{color:#aaa}
+  @media(max-width:600px){.two{grid-template-columns:1fr}.mg{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="header-title">F1 Performance Intelligence System</div>
+    <div class="header-sub">Bahrain Circuit &nbsp;·&nbsp; 2 laps &nbsp;·&nbsp; 32 channels &nbsp;·&nbsp; 100 Hz</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span class="badge b-green">Pipeline complete</span>
+    <span class="badge b-blue">v1.0</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('lap',this)">Lap summary</div>
+  <div class="tab" onclick="switchTab('strategy',this)">Race strategy</div>
+  <div class="tab" onclick="switchTab('corners',this)">Corner analysis</div>
+  <div class="tab" onclick="switchTab('aero',this)">Aero &amp; setup</div>
+  <div class="tab" onclick="switchTab('delta',this)">Lap delta</div>
+</div>
+
+<!-- LAP SUMMARY -->
+<div id="lap" class="panel active">
+  <div class="sec">Lap 0 — baseline</div>
+  <div class="mg">
+    <div class="mc"><div class="ml">Lap time</div><div class="mv">1:09.961</div><div class="ms">fuel-corr 1:07.261</div></div>
+    <div class="mc"><div class="ml">Max speed</div><div class="mv">320.6</div><div class="ms">km/h — gear 8</div></div>
+    <div class="mc"><div class="ml">Avg speed</div><div class="mv">190.0</div><div class="ms">km/h</div></div>
+    <div class="mc"><div class="ml">Avg throttle</div><div class="mv">45.7%</div><div class="ms">brake 84.0 s</div></div>
+    <div class="mc"><div class="ml">ERS deployed</div><div class="mv">2.49 kJ</div><div class="ms">harvested 2.11 kJ</div></div>
+    <div class="mc"><div class="ml">Max lateral G</div><div class="mv">1.58 g</div><div class="ms">avg 0.24 g</div></div>
+    <div class="mc"><div class="ml">Fuel load</div><div class="mv">90.0 kg</div><div class="ms">full tank</div></div>
+    <div class="mc"><div class="ml">DRS gain</div><div class="mv">+10.5</div><div class="ms">km/h on S1</div></div>
+  </div>
+
+  <div class="sec">Lap 1 — comparison</div>
+  <div class="mg">
+    <div class="mc"><div class="ml">Lap time</div><div class="mv" style="color:#4ade80">1:09.945</div><div class="ms">0.016 s faster</div></div>
+    <div class="mc"><div class="ml">Max speed</div><div class="mv">321.3</div><div class="ms">km/h +0.7 vs lap 0</div></div>
+    <div class="mc"><div class="ml">Avg speed</div><div class="mv">190.0</div><div class="ms">km/h same</div></div>
+    <div class="mc"><div class="ml">Avg throttle</div><div class="mv">46.3%</div><div class="ms">brake 104.5 s</div></div>
+    <div class="mc"><div class="ml">ERS deployed</div><div class="mv">3.0 kJ</div><div class="ms">harvested 2.8 kJ</div></div>
+    <div class="mc"><div class="ml">Max lateral G</div><div class="mv">1.57 g</div><div class="ms">avg 0.24 g</div></div>
+    <div class="mc"><div class="ml">Fuel load</div><div class="mv">88.2 kg</div><div class="ms">−1.8 kg used</div></div>
+    <div class="mc"><div class="ml">DRS gain</div><div class="mv">+10.6</div><div class="ms">km/h on S1</div></div>
+  </div>
+
+  <div class="sec">Straight S1 performance</div>
+  <div class="card">
+    <div class="row"><span class="rl">Distance</span><span class="rv">0 m → 3,112 m</span></div>
+    <div class="row"><span class="rl">Top speed</span><span class="rv">320.6 km/h</span></div>
+    <div class="row"><span class="rl">Avg ERS deployment</span><span class="rv">20.1 kW</span></div>
+    <div class="row"><span class="rl">DRS active</span><span class="rv"><span class="badge b-green">Yes</span></span></div>
+    <div class="row"><span class="rl">Straight time</span><span class="rv">80.7 s</span></div>
+  </div>
+</div>
+
+<!-- STRATEGY -->
+<div id="strategy" class="panel">
+  <div class="info-box">Best strategy: 1-stop MEDIUM (laps 1–24) → HARD (laps 25–57). Total race time 2h 04m 25s.</div>
+
+  <div class="sec">Top 5 strategies — 57 lap race</div>
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 70px 70px 100px;gap:8px;padding-bottom:8px;border-bottom:1px solid #222;margin-bottom:4px">
+      <span class="strat-head">Stint plan</span>
+      <span class="strat-head">Pit lap</span>
+      <span class="strat-head">Stops</span>
+      <span class="strat-head">Race time</span>
+    </div>
+    <div class="strat-grid">
+      <div><div class="stint"><div class="seg" style="flex:24;background:#3d2000;color:#fbbf24">MED ×24</div><div class="seg" style="flex:33;background:#1a1a1a;color:#aaa">HARD ×33</div></div></div>
+      <span>Lap 24</span><span><span class="badge b-green">1 stop</span></span>
+      <span class="winner">2h 04m 25s ★</span>
+    </div>
+    <div class="strat-grid">
+      <div><div class="stint"><div class="seg" style="flex:25;background:#3d2000;color:#fbbf24">MED ×25</div><div class="seg" style="flex:32;background:#1a1a1a;color:#aaa">HARD ×32</div></div></div>
+      <span>Lap 25</span><span><span class="badge b-green">1 stop</span></span><span>2h 04m 25s</span>
+    </div>
+    <div class="strat-grid">
+      <div><div class="stint"><div class="seg" style="flex:26;background:#3d2000;color:#fbbf24">MED ×26</div><div class="seg" style="flex:31;background:#1a1a1a;color:#aaa">HARD ×31</div></div></div>
+      <span>Lap 26</span><span><span class="badge b-green">1 stop</span></span><span>2h 04m 25s</span>
+    </div>
+    <div class="strat-grid">
+      <div><div class="stint"><div class="seg" style="flex:27;background:#3d2000;color:#fbbf24">MED ×27</div><div class="seg" style="flex:30;background:#1a1a1a;color:#aaa">HARD ×30</div></div></div>
+      <span>Lap 27</span><span><span class="badge b-green">1 stop</span></span><span>2h 04m 26s</span>
+    </div>
+    <div class="strat-grid">
+      <div><div class="stint"><div class="seg" style="flex:28;background:#3d2000;color:#fbbf24">MED ×28</div><div class="seg" style="flex:29;background:#1a1a1a;color:#aaa">HARD ×29</div></div></div>
+      <span>Lap 28</span><span><span class="badge b-green">1 stop</span></span><span>2h 04m 26s</span>
+    </div>
+  </div>
+
+  <div class="sec">Lap time simulation</div>
+  <div style="display:flex;gap:16px;margin-bottom:10px;font-size:12px;color:#555">
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:3px;background:#fbbf24;display:inline-block"></span>Medium compound</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:3px;background:#888;border-top:2px dashed #888;display:inline-block"></span>Hard compound</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#e10600;display:inline-block"></span>Pit stop</span>
+  </div>
+  <div style="position:relative;width:100%;height:220px">
+    <canvas id="lapChart" role="img" aria-label="Lap time simulation showing tyre degradation across 57 laps">Lap time simulation across 57 laps with pit stop at lap 24.</canvas>
+  </div>
+
+  <div class="sec" style="margin-top:20px">Scenario analysis</div>
+  <div class="two">
+    <div class="card">
+      <div class="card-title">Undercut simulation</div>
+      <div class="row"><span class="rl">Attacker</span><span class="rv">SOFT compound</span></div>
+      <div class="row"><span class="rl">Defender</span><span class="rv">MEDIUM compound</span></div>
+      <div class="row"><span class="rl">Starting gap</span><span class="rv">+2.0 s</span></div>
+      <div class="row"><span class="rl">After 6 laps</span><span class="rv loser">Still 19.9 s behind</span></div>
+      <div style="margin-top:10px"><span class="badge b-red">Undercut fails</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Safety car scenario</div>
+      <div class="row"><span class="rl">SC deployed</span><span class="rv">Lap 25 of 57</span></div>
+      <div class="row"><span class="rl">Gap before SC</span><span class="rv">4.5 s</span></div>
+      <div class="row"><span class="rl">Gap after SC</span><span class="rv">2.0 s</span></div>
+      <div class="row"><span class="rl">Time saved</span><span class="rv winner">+7.0 s</span></div>
+      <div style="margin-top:10px"><span class="badge b-green">Pit under SC</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CORNERS -->
+<div id="corners" class="panel">
+  <div class="sec">Corner 1 — slow corner (T1 at 3,112 m)</div>
+  <div class="mg">
+    <div class="mc"><div class="ml">Entry speed</div><div class="mv">101.1</div><div class="ms">km/h</div></div>
+    <div class="mc"><div class="ml">Apex speed</div><div class="mv">84.6</div><div class="ms">km/h</div></div>
+    <div class="mc"><div class="ml">Exit speed</div><div class="mv">84.6</div><div class="ms">km/h</div></div>
+    <div class="mc"><div class="ml">Speed loss</div><div class="mv">16.5</div><div class="ms">km/h entry→apex</div></div>
+    <div class="mc"><div class="ml">Braking dist</div><div class="mv">24.0 m</div><div class="ms">brake pressure 65.8%</div></div>
+    <div class="mc"><div class="ml">Lateral G</div><div class="mv">0.49 g</div><div class="ms">peak through apex</div></div>
+    <div class="mc"><div class="ml">Corner time</div><div class="mv">0.990 s</div><div class="ms">entry to exit</div></div>
+    <div class="mc"><div class="ml">Downforce idx</div><div class="mv">2.75</div><div class="ms">lateral G / v²</div></div>
+  </div>
+
+  <div class="sec">Performance scores</div>
+  <div class="card">
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+        <span style="color:#666">Late braking score</span>
+        <span style="font-weight:600;color:#fff">84 / 100</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:84%;background:#3b82f6"></div></div>
+    </div>
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+        <span style="color:#666">Exit quality score</span>
+        <span style="font-weight:600;color:#fff">83.7 / 100</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:83.7%;background:#22c55e"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px">
+        <span style="color:#666">ERS efficiency score</span>
+        <span style="font-weight:600;color:#f87171">0 / 100</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill" style="width:0%;background:#ef4444"></div></div>
+    </div>
+  </div>
+
+  <div class="alert-box">ERS efficiency 0/100 — no ERS deployed through T1 exit. Map ERS deployment to corner exit to recover 0.05–0.10 s.</div>
+
+  <div class="sec">ERS breakdown at T1</div>
+  <div class="card">
+    <div class="row"><span class="rl">ERS deployed</span><span class="rv">0.005 kJ</span></div>
+    <div class="row"><span class="rl">ERS harvested (braking)</span><span class="rv">0.017 kJ</span></div>
+    <div class="row"><span class="rl">Net ERS balance</span><span class="rv loser">−0.012 kJ</span></div>
+    <div class="row"><span class="rl">Throttle pickup dist</span><span class="rv">3,135.9 m</span></div>
+    <div class="row"><span class="rl">Throttle ramp rate</span><span class="rv">0.0 /s (needs work)</span></div>
+  </div>
+</div>
+
+<!-- AERO -->
+<div id="aero" class="panel">
+  <div class="two">
+    <div>
+      <div class="sec">Drag analysis</div>
+      <div class="card">
+        <div class="row"><span class="rl">Drag coefficient Cd</span><span class="rv">1.000</span></div>
+        <div class="row"><span class="rl">Drag @ 100 km/h</span><span class="rv">708.9 N</span></div>
+        <div class="row"><span class="rl">Drag @ 200 km/h</span><span class="rv">2,835 N</span></div>
+        <div class="row"><span class="rl">Drag @ 300 km/h</span><span class="rv">6,380 N</span></div>
+        <div class="row"><span class="rl">DRS Cd reduction</span><span class="rv">−12.0%</span></div>
+        <div class="row"><span class="rl">DRS speed gain</span><span class="rv winner">+10.5 km/h</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec">Downforce &amp; balance</div>
+      <div class="card">
+        <div class="row"><span class="rl">Downforce index</span><span class="rv">2.75</span></div>
+        <div class="row"><span class="rl">Peak DF index</span><span class="rv">2.75</span></div>
+        <div class="row"><span class="rl">Aero balance</span><span class="rv">47.5% front</span></div>
+        <div class="row"><span class="rl">Balance status</span><span class="rv"><span class="badge b-green">Nominal</span></span></div>
+        <div class="row"><span class="rl">Slow corner grip</span><span class="rv">84.6 km/h apex</span></div>
+        <div class="row"><span class="rl">Aero Cd range</span><span class="rv"><span class="badge b-blue">Normal F1</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">Setup recommendations</div>
+  <div class="alert-box"><strong>HIGH — Brake bias:</strong> Fronts 1,070°C vs rears 749°C (ratio 1.43). Reduce front bias 1–2%. Est. gain: 0.05–0.10 s per lap.</div>
+  <div class="good-box"><strong>Front wing:</strong> 47.5% front balance — within nominal 45–50%. No change needed.</div>
+  <div class="good-box"><strong>DRS system:</strong> 10.5 km/h gain confirms actuator working correctly.</div>
+  <div class="info-box"><strong>Rear wing note:</strong> Monitor Cd across circuits. Consider lower-drag spec for Monza or Baku.</div>
+</div>
+
+<!-- DELTA -->
+<div id="delta" class="panel">
+  <div class="sec">Overall result</div>
+  <div class="mg">
+    <div class="mc"><div class="ml">Winner</div><div class="mv" style="color:#4ade80">Lap 1</div><div class="ms">by 0.022 s</div></div>
+    <div class="mc"><div class="ml">Lap 0 time</div><div class="mv">1:09.961</div><div class="ms">fuel-corr 1:07.261</div></div>
+    <div class="mc"><div class="ml">Lap 1 time</div><div class="mv">1:09.945</div><div class="ms">fuel-corr 1:07.298</div></div>
+    <div class="mc"><div class="ml">Time delta</div><div class="mv winner">−0.022 s</div><div class="ms">lap 1 faster</div></div>
+  </div>
+
+  <div class="sec">Corner-by-corner breakdown</div>
+  <div class="card">
+    <div style="display:grid;grid-template-columns:50px 70px 90px 100px 100px 80px;gap:6px;font-size:11px;color:#555;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding-bottom:8px;border-bottom:1px solid #222;margin-bottom:4px">
+      <span>Turn</span><span>Type</span><span>Time delta</span><span>Entry delta</span><span>Exit delta</span><span>ERS delta</span>
+    </div>
+    <div style="display:grid;grid-template-columns:50px 70px 90px 100px 100px 80px;gap:6px;font-size:13px;align-items:center;padding:8px 0">
+      <span style="font-weight:600;color:#fff">T1</span>
+      <span><span class="badge b-blue">slow</span></span>
+      <span class="loser">−0.016 s</span>
+      <span class="loser">−16.8 km/h</span>
+      <span class="winner">+0.2 km/h</span>
+      <span class="neutral">+0.001 kJ</span>
+    </div>
+  </div>
+
+  <div class="sec">Driver coaching notes</div>
+  <div class="alert-box">Lap B brakes 9 m later at T1 — more entry speed but loses time mid-corner.</div>
+  <div class="info-box">Lap A picks up throttle 13 m earlier at T1 — better traction zone, gains on exit.</div>
+  <div class="good-box">Both laps reach same apex speed (84.6 km/h) — consistent minimum speed control.</div>
+
+  <div class="sec">Tyre degradation — MEDIUM compound</div>
+  <div class="card">
+    <div class="row"><span class="rl">Lap 0 avg speed</span><span class="rv">190.00 km/h</span></div>
+    <div class="row"><span class="rl">Lap 1 avg speed</span><span class="rv">190.02 km/h</span></div>
+    <div class="row"><span class="rl">Speed loss vs new</span><span class="rv winner">−0.02 km/h (negligible)</span></div>
+    <div class="row"><span class="rl">Degradation rate</span><span class="rv">0.02 km/h / lap</span></div>
+    <div class="row"><span class="rl">Tyre health</span><span class="rv"><span class="badge b-green">Excellent — early stint</span></span></div>
+  </div>
+</div>
+
+<script>
+function switchTab(id,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+
+const labels=[],medData=[],hardData=[];
+for(let i=1;i<=57;i++){
+  labels.push(i);
+  if(i<=24){
+    const t=i<=4?(130.501-(i-1)*0.127):(130.121+(i-4)*0.04);
+    medData.push(parseFloat(t.toFixed(3)));
+    hardData.push(null);
+  } else {
+    const age=i-24;
+    const t=age<=6?(130.781-(age-1)*0.08):(130.381+(age-6)*0.02);
+    medData.push(null);
+    hardData.push(parseFloat(t.toFixed(3)));
+  }
+}
+
+new Chart(document.getElementById('lapChart'),{
+  type:'line',
+  data:{
+    labels,
+    datasets:[
+      {label:'Medium',data:medData,borderColor:'#fbbf24',borderWidth:2,pointRadius:0,tension:0.3,spanGaps:false},
+      {label:'Hard',data:hardData,borderColor:'#888',borderWidth:2,borderDash:[5,3],pointRadius:0,tension:0.3,spanGaps:false},
+      {label:'Pit',type:'scatter',data:[{x:24,y:130.921}],pointStyle:'triangle',pointRadius:8,backgroundColor:'#e10600',borderColor:'#e10600'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.parsed.y?c.parsed.y.toFixed(3)+' s':'pit stop')}}},
+    scales:{
+      x:{title:{display:true,text:'Lap',color:'#555',font:{size:11}},ticks:{color:'#555',font:{size:10},maxTicksLimit:12},grid:{color:'rgba(255,255,255,0.05)'}},
+      y:{title:{display:true,text:'Lap time (s)',color:'#555',font:{size:11}},ticks:{color:'#555',font:{size:10},callback:v=>v.toFixed(1)},grid:{color:'rgba(255,255,255,0.05)'},min:130.0,max:131.3}
+    }
+  }
+});
+</script>
+</body>
+</html>
