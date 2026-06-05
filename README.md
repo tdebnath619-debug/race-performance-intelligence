@@ -9,7 +9,7 @@
 ```bash
 pip install -r requirements.txt
 python run_f1_analysis.py            # runs on synthetic Bahrain circuit data
-python run_f1_analysis.py my.csv     # run on your own telemetry CSV
+python run_f1_analysis.py my.csv     # run on  telemetry CSV
 ```
 
 ---
