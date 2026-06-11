@@ -23,8 +23,13 @@ Motorsport engineering analysis system. Built to demonstrate skills relevant to 
 
 ```bash
 pip install -r requirements.txt
+<<<<<<< HEAD
 python run_analysis.py                        # synthetic Bahrain circuit
 python run_analysis.py data/raw/my_lap.csv    # your telemetry file
+=======
+python run_f1_analysis.py            # runs on synthetic Bahrain circuit data
+python run_f1_analysis.py my.csv     # run on  telemetry CSV
+>>>>>>> 7e8d7e5e76bd9a14cfc8821f84ba13b7e1f00306
 ```
 
 ---
