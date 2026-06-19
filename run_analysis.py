@@ -118,3 +118,22 @@ if __name__ == "__main__":
         csv_path = generate()
 
     run(csv_path, driver_a="VER", driver_b="LEC", session="Bahrain_2024_Q")
+
+
+def generate_dashboard():
+    """Generate HTML dashboard from pipeline output."""
+    try:
+        import sys
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).parent / "telemetry"))
+        from dashboard import generate
+        out = generate(
+            analysis_path = "reports/analysis.json",
+            delta_path    = "reports/delta_report.json",
+            out_path      = "index.html",
+        )
+        print(f"  Dashboard -> {out}")
+    except Exception as e:
+        print(f"  Dashboard generation failed: {e}")
+
+generate_dashboard()
