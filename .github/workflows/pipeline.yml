@@ -1,7 +1,9 @@
-﻿name: F1 Analysis Pipeline
+name: Telemetry Pipeline
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
 
 jobs:
@@ -15,13 +17,21 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install pandas numpy matplotlib scipy
+        run: pip install pandas numpy matplotlib scipy pytest
 
-      - name: Run telemetry pipeline
+      - name: Run tests
+        run: pytest tests/ -v --tb=short 2>/dev/null || echo "Tests need reports to exist first"
+
+      - name: Run pipeline
         run: python run_analysis.py
+
+      - name: Run tests with reports
+        run: pytest tests/ -v --tb=short
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
           name: telemetry-reports
-          path: reports/
+          path: |
+            reports/
+            index.html
