@@ -1,9 +1,7 @@
-name: Telemetry Pipeline
+﻿name: Telemetry Pipeline
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
@@ -19,13 +17,10 @@ jobs:
       - name: Install dependencies
         run: pip install pandas numpy matplotlib scipy pytest
 
-      - name: Run tests
-        run: pytest tests/ -v --tb=short 2>/dev/null || echo "Tests need reports to exist first"
-
       - name: Run pipeline
         run: python run_analysis.py
 
-      - name: Run tests with reports
+      - name: Run tests
         run: pytest tests/ -v --tb=short
 
       - name: Upload reports
