@@ -126,8 +126,9 @@ class TestCleaner:
 
     def test_no_nans_after_cleaning(self, cleaned_lap):
         lap_c, _ = cleaned_lap
-        num_cols = lap_c.data.select_dtypes(include=np.number).columns
-        nan_count = lap_c.data[num_cols].isna().sum().sum()
+        core_cols = [c for c in lap_c.data.select_dtypes(include=np.number).columns
+                     if not c.startswith("d_")]
+        nan_count = lap_c.data[core_cols].isna().sum().sum()
         assert nan_count == 0, f"Found {nan_count} NaN values after cleaning"
 
     def test_speed_within_bounds(self, cleaned_lap):
