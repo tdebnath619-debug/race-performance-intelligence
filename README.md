@@ -1,3 +1,4 @@
+ source /workspaces/race-performance-intelligence/.venv/bin/activate
 # race-performance-intelligence
 
 Motorsport engineering analysis system. Built to demonstrate skills relevant to Junior Performance Engineer, Motorsport Data Engineer, and Simulation Engineer roles.
@@ -12,7 +13,7 @@ Motorsport engineering analysis system. Built to demonstrate skills relevant to 
 | Signal processing | ✅ Complete | 5-step documented pipeline |
 | Corner segmentation | ✅ Complete | State-machine detection |
 | Delta analysis | ✅ Complete | Distance-aligned, engineering narrative |
-| FastF1 integration | 🔄 Planned | See docs/methodology.md §5 |
+| FastF1 integration | ✅ Complete | Real F1 data — qualifying & race sessions |
 | Race strategy | ⏸ Stable | Not under active development |
 | Aero modelling | ⏸ Stable | Not under active development |
 | Setup optimisation | ⏸ Stable | Not under active development |
@@ -25,8 +26,6 @@ Motorsport engineering analysis system. Built to demonstrate skills relevant to 
 pip install -r requirements.txt
 python run_analysis.py                        # synthetic Bahrain circuit
 python run_analysis.py data/raw/my_lap.csv    # my telemetry file
-python run_f1_analysis.py            # runs on synthetic Bahrain circuit data
-python run_f1_analysis.py my.csv     # run on  telemetry CSV
 ```
 
 ---
@@ -97,29 +96,24 @@ CORNER-BY-CORNER
 ## Repository structure
 
 ```
-race-performance-intelligence/
+race-performance-intelligence
 ├── telemetry/
-│   ├── loader.py        — ingestion
-│   ├── cleaner.py       — signal processing
-│   ├── segmentation.py  — corner detection
-│   ├── delta.py         — delta analysis ← core output
-│   ├── metrics.py       — per-lap/corner metrics
-│   ├── plot.py          — comparison charts
-│   └── report.py        — JSON/CSV export
-├── strategy/            — pit window, undercut, safety car (stable)
-├── aero/                — drag, downforce (stable)
-├── setup/               — brake bias, tyre, diff (stable)
+│   ├── loader.py           — ingestion
+│   ├── loader_fastf1.py    — real F1 data via FastF1
+│   ├── cleaner.py          — signal processing
+│   ├── segmentation.py     — corner detection
+│   ├── delta.py            — delta analysis
+│   ├── metrics.py          — per-lap/corner metrics
+│   ├── dashboard.py        — HTML dashboard generator
+│   ├── plot.py             — comparison charts
+│   └── report.py           — JSON/CSV export
+├── tests/                  — 8 passing unit tests
 ├── docs/
-│   ├── assumptions.md
-│   ├── methodology.md
-│   └── engineering_notes.md
 ├── data/raw/
-│   └── generate_telemetry.py
 ├── CHANGELOG.md
 ├── run_analysis.py
-└── requirements.txt
-```
 
+```
 ---
 
 ## Requirements
