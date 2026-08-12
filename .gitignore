@@ -11,3 +11,7 @@ reports/
 .vscode/
 .idea/
 *.DS_Store
+*.zip
+f1_analysis*.json
+f1_analysis*.csv
+f1_comparison*.png

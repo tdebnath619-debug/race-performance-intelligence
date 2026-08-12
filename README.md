@@ -1,6 +1,6 @@
 # race-performance-intelligence
 
-Motorsport engineering telemetry analysis system. Built to demonstrate skills relevant to Junior Performance Engineer, Motorsport Data Engineer, and Simulation Engineer roles in professional motorsport.
+Motorsport engineering analysis system. Built to demonstrate skills relevant to Junior Performance Engineer, Motorsport Data Engineer, and Simulation Engineer roles.
 
 ---
 
@@ -13,15 +13,16 @@ Motorsport engineering telemetry analysis system. Built to demonstrate skills re
 ## Quick start
 
 ```bash
-# Synthetic data (no internet required)
 pip install -r requirements.txt
+
+# Synthetic data
 python run_analysis.py
 
-# Real F1 data — Verstappen vs Leclerc, Bahrain 2024 Qualifying
+# Real F1 data
 python run_analysis.py --fastf1 --year 2024 --gp Bahrain --session Q --driver_a VER --driver_b LEC
 
 # Your own CSV
-python run_analysis.py data/raw/my_telemetry.csv
+python run_analysis.py data/raw/my_lap.csv
 
 # Run tests
 pytest tests/ -v
@@ -29,71 +30,92 @@ pytest tests/ -v
 
 ---
 
-## System status
+## Current status
 
-| Module | Status | Description |
-|--------|--------|-------------|
-| Telemetry ingestion | ✅ Complete | 25+ channels, alias resolution, validation |
-| Signal processing | ✅ Complete | 5-step documented pipeline, audit trail |
-| Corner segmentation | ✅ v2 | Multi-signal detection, all corner types |
+| Module | Status | Notes |
+|--------|--------|-------|
+| Telemetry ingestion | ✅ Complete | TelemetryLap dataclass, 25+ channels |
+| Signal processing | ✅ Complete | 5-step documented pipeline |
+| Corner segmentation | ✅ Complete | v2 multi-signal detection |
 | Delta analysis | ✅ Complete | Distance-aligned, engineering narrative |
-| FastF1 integration | ✅ Complete | Real F1 data, qualifying & race |
-| Test suite | ✅ Complete | 25 unit + integration tests |
-| CI/CD | ✅ Complete | GitHub Actions on every push |
+| FastF1 integration | ✅ Complete | Real F1 data — qualifying and race sessions |
+| Test suite | ✅ Complete | 8 passing unit tests |
+| CI/CD pipeline | ✅ Complete | GitHub Actions on every push |
 | Live dashboard | ✅ Complete | Auto-generated from pipeline output |
-| Race strategy | ⏸ Stable | Pit window, undercut, safety car models |
-| Aero modelling | ⏸ Stable | Cd proxy, downforce index |
-| Setup optimisation | ⏸ Stable | Brake bias, tyre, differential |
+| Race strategy | ⏸ Stable | Not under active development |
+| Aero modelling | ⏸ Stable | Not under active development |
+| Setup optimisation | ⏸ Stable | Not under active development |
 
 ---
 
-## Pipeline architecture
+## Repository structure
+
+```
+race-performance-intelligence/
+├── telemetry/
+│   ├── loader.py           — ingestion
+│   ├── loader_fastf1.py    — real F1 data via FastF1
+│   ├── cleaner.py          — signal processing
+│   ├── segmentation.py     — corner detection
+│   ├── delta.py            — delta analysis
+│   ├── metrics.py          — per-lap/corner metrics
+│   ├── dashboard.py        — HTML dashboard generator
+│   ├── plot.py             — comparison charts
+│   └── report.py           — JSON/CSV export
+├── tests/                  — 8 passing unit tests
+├── docs/
+│   ├── assumptions.md
+│   ├── methodology.md
+│   └── engineering_notes.md
+├── data/raw/
+│   └── generate_telemetry.py
+├── .github/workflows/
+│   └── pipeline.yml
+├── CHANGELOG.md
+├── run_analysis.py
+└── requirements.txt
+```
+
+---
+
+## Telemetry pipeline
 
 ```
 CSV / FastF1
      │
      ▼
-loader.py          ingestion · validation · unit normalisation · TelemetryLap
+loader.py          ingestion, validation, unit normalisation
      │
      ▼
-cleaner.py         clip → interpolate → despike → smooth → differentiate
-                   CleaningReport audit trail per lap
+cleaner.py         clip, interpolate, despike, smooth, differentiate
      │
      ▼
-segmentation.py    multi-signal corner detection (v2)
-                   brake signal + d_speed + steering angle
-                   SegmentationResult with corner/straight timing split
+segmentation.py    corner detection, SegmentationResult
      │
      ▼
-delta.py           distance-aligned cumulative time delta
-                   ΔT(d) = ∫(1/v_B − 1/v_A) dx
-                   engineering narrative: braking_zone · corner_speed ·
-                   throttle_application · corner_exit
+delta.py           distance-aligned delta, engineering narrative
      │
      ▼
-reports/           JSON · CSV · PNG chart · index.html dashboard
+reports/           JSON, CSV, PNG chart, index.html dashboard
 ```
 
 ---
 
-## FastF1 real data
+## Supported telemetry channels
 
-```python
-from loader_fastf1 import load_fastf1_comparison, session_info
-
-# See all drivers in session
-print(session_info(2024, "Bahrain", "Q"))
-
-# Load and compare
-lap_ver, lap_lec = load_fastf1_comparison(2024, "Bahrain", "Q", "VER", "LEC")
-```
+| Category | Channels |
+|----------|---------|
+| Core | time, distance, speed, throttle, brake, gear, rpm, steering |
+| Power unit | ers_deployment_kw, ers_harvesting_kw, fuel_kg, drs_state |
+| Dynamics | lateral_g, longitudinal_g |
+| Temperatures | brake_temp_fl/fr/rl/rr, tyre_temp_fl/fr/rl/rr |
 
 ---
 
 ## Example output
 
 ```
-DELTA: VER (A) vs LEC (B) | Session: Bahrain_2024_Q
+DELTA: VER (A) vs LEC (B)   Session: Bahrain_2024_Q
 
 KEY FINDINGS
   • Largest delta: T3 (slow) — 0.071 s — braking zone
@@ -103,9 +125,9 @@ KEY FINDINGS
 CORNER-BY-CORNER
   T    Type        Δt(s)   ΔvEntry    ΔvApex    ΔvExit
   T3   slow       +0.071     +8.2      +1.1      +3.4
-       → VER carries 8.2 km/h more entry speed (brakes 12m later). VER gains 0.071 s.
-  T8   slow       -0.043     -2.1      +3.8      +2.2
-       → LEC achieves 3.8 km/h higher minimum speed. LEC gains 0.043 s.
+       → VER carries 8.2 km/h more entry speed (brakes 12m later).
+  T7   slow       -0.043     -2.1      +3.8      +2.2
+       → LEC achieves 3.8 km/h higher minimum speed.
 ```
 
 ---
@@ -121,28 +143,22 @@ CORNER-BY-CORNER
 
 ---
 
-## Telemetry channels (25+)
+## Requirements
 
-| Category | Channels |
-|----------|---------|
-| Core | time, distance, speed, throttle, brake, gear, rpm, steering |
-| Power unit | ers_deployment_kw, ers_harvesting_kw, fuel_kg, drs_state |
-| Dynamics | lateral_g, longitudinal_g |
-| Temperatures | brake_temp_fl/fr/rl/rr, tyre_temp_fl/fr/rl/rr |
+```
+pandas>=2.0
+numpy>=1.25
+matplotlib>=3.7
+scipy>=1.11
+pytest>=7.0
+fastf1>=3.3
+```
 
 ---
 
 ## Target roles
 
 - Junior Performance Engineer
-- Motorsport Data Engineer  
+- Motorsport Data Engineer
 - Simulation Engineer
 - Motorsport Software Engineer
-
----
-
-## Requirements
-
-```
-pandas>=2.0 · numpy>=1.25 · matplotlib>=3.7 · scipy>=1.11 · pytest>=7.0 · fastf1>=3.3
-```
