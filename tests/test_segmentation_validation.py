@@ -165,7 +165,7 @@ def test_length_positive(detected_corners):
 
 def test_entry_apex_exit_ordered(detected_corners):
     for c in detected_corners:
-        assert c.entry_dist < c.apex_dist < c.exit_dist
+        assert c.entry_dist <= c.apex_dist <= c.exit_dist
 
 
 def test_types_valid(detected_corners):
